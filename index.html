@@ -1,15 +1,113 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
-<title> Ko Hein-Money Transfer & TopUp </title>
+<title>KO Hein-Money Transfer & TopUP</title>
+<style>
+body {
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+.account-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.account-details {
+  flex-grow: 1;
+}
+
+.copy-button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+</style>
 </head>
 <body>
 
-<h1 style="background-color:DodgerBlue;" > Digital Mobile Payment Account</h1>
-<p> Wave Pay -09966674258 <br>
-KBZ Pay -09777725086<br>
+  <h2>Digital Mobile Payment Account</h2>
+
+  <div class="account-card">
+    <div class="account-details">
+      <strong>Wave Money Account Name: <br> </strong> Hein Hsan<br>
+      <strong>Wave Pay:</strong> 09966674258
+    </div>
+    <button class="copy-button" onclick="copyToClipboard('09966674258')">Copy</button>
+  </div>
+<div class="account-card">
+    <div class="account-details">
+      <strong> KBZ Pay Account Name : <br> </strong> Hein Hsan<br>
+      <strong> KBZ Pay:</strong> 09777725086
+    </div>
+    <button class="copy-button" onclick="copyToClipboard('09777725086')">Copy</button>
+  </div>
   
-Acc Name -Hein Hsan </p>
+  
+<div class="account-card">
+    <div class="account-details">
+      <strong>AYA Pay Account Name: <br> </strong> Hein Hsan<br>
+      <strong>AYA Pay:</strong> 09777725086
+    </div>
+    <button class="copy-button" onclick="copyToClipboard('09777725086')">Copy</button>
+  </div>
+  
+<div class="account-card">
+    <div class="account-details">
+      <strong>KBZ Special Account Name: <br> </strong> Hein Hsan<br>
+      <strong>KBZ BANK:</strong> 24313724300197901
+    </div>
+    <button class="copy-button" onclick="copyToClipboard('24313724300197901')">Copy</button>
+  </div>
+  <div class="account-card">
+    <div class="account-details">
+      <strong>AYA Special Account Name: <br> </strong> Hein Hsan<br>
+      <strong>AYA Bank:</strong> 40035991319
+    </div>
+    <button class="copy-button" onclick="copyToClipboard('40035991319')">Copy</button>
+  </div>
+
+  <div class="account-card">
+    <div class="account-details">
+      <strong>Yoma Flexi Account Name:<br> </strong> Hein Hsan<br>
+      <strong>Yoma Bank:</strong> 005511108021168
+    </div>
+    <button class="copy-button" onclick="copyToClipboard('005511108021168')">Copy</button>
+  </div>
+
+  <div class="account-card">
+    <div class="account-details">
+      <strong>CB Special Account Name: <br> </strong> Hein Hsan<br>
+      <strong>CB Bank:</strong> 0092100900000841
+    </div>
+    <button class="copy-button" onclick="copyToClipboard('0092100900000841')">Copy</button>
+  </div>
+
+  <script>
+    function copyToClipboard(text) {
+      const tempInput = document.createElement('textarea');
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+      alert('Copied to clipboard!');
+    }
+  </script>
 
 </body>
 </html>
