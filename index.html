@@ -94,7 +94,7 @@
       transform: translateY(-2px);
     }
 
-    /* Styles for the new QR section */
+    /* Styles for the new QR section buttons */
     .qr-button {
       width: 100%;
       margin-top: 10px;
@@ -112,7 +112,8 @@
       background-color: #0056b3;
     }
 
-    #wavePayQrDisplayContainer {
+    /* Styles for the QR display containers */
+    .qr-display-container { /* Unified style for both QR containers */
       background-color: #1a1a2e;
       border: 1px solid #444;
       border-radius: 10px;
@@ -125,14 +126,14 @@
       align-items: center;
     }
 
-    #wavePayQrDisplayContainer img {
+    .qr-display-container img {
       max-width: 100%;
       height: auto;
       border-radius: 5px;
       margin-bottom: 15px;
     }
 
-    #wavePayQrDisplayContainer p {
+    .qr-display-container p {
       font-size: 14px;
       line-height: 1.5;
       color: #ccc;
@@ -158,15 +159,15 @@
       </div>
     </div>
     <button class="copy-button" onclick="copyToClipboard('09966674258')">📋Copy</button>
-    <button class="qr-button" onclick="toggleWavePayQR()">Wave Pay QR Code ပြရန်</button>
+    <button class="qr-button" onclick="toggleQrDisplay('wavePayQrDisplayContainer')">Wave Pay QR Code ပြရန်</button>
   </div>
 
-  <div id="wavePayQrDisplayContainer">
+  <div id="wavePayQrDisplayContainer" class="qr-display-container">
     <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/Wave%20Pay%20QR.jpg" alt="Wave Pay QR Code">
     <p>
       Wave Pay မှတဆင့် ငွေလွှဲမည်ဆိုပါက <br>
       ဤ QR Code ကို Scan ဖတ်၍ လွှဲပြောင်းနိုင်ပါသည်။ <br>
-      မှတ်ချက် Note:တွင် Buy Phone ဟုထည့်​ပေးပါ
+      ငွေလွှဲပြီးပါက screenshot ရိုက်၍ ပို့ပေးပါ။
     </p>
   </div>
 
@@ -174,11 +175,11 @@
     <div class="account-content">
       <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/KBZ%20Pay.jpg" class="account-logo">
       <div class="account-details">
-        <strong>KBZ Pay(Hein Hsan)<br>
-        </strong> 09777725086
+        <strong>KBZ Pay(Hnin Htet Yee)<br>
+        </strong> 09766847756
       </div>
     </div>
-    <button class="copy-button" onclick="copyToClipboard('09777725086')">📋Copy</button>
+    <button class="copy-button" onclick="copyToClipboard('09766847756')">📋Copy</button>
   </div>
 
   <div class="account-card">
@@ -190,6 +191,16 @@
       </div>
     </div>
     <button class="copy-button" onclick="copyToClipboard('09777725086')">📋Copy</button>
+    <button class="qr-button" onclick="toggleQrDisplay('ayaPayMerchantQrDisplayContainer')">AYA Pay Merchant QR Code ပြရန်</button>
+  </div>
+
+  <div id="ayaPayMerchantQrDisplayContainer" class="qr-display-container">
+    <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/AYA%20Pay%20Merchant%20QR.jpg" alt="AYA Pay Merchant QR Code">
+    <p>
+      AYA Pay Merchant မှတဆင့် ငွေလွှဲမည်ဆိုပါက <br>
+      ဤ QR Code ကို Scan ဖတ်၍ လွှဲပြောင်းနိုင်ပါသည်။ <br>
+      ငွေလွှဲပြီးပါက screenshot ရိုက်၍ ပို့ပေးပါ။
+    </p>
   </div>
 
   <div class="account-card">
@@ -284,9 +295,9 @@
     setInterval(updateDateTime, 1000);
     updateDateTime();
 
-    // Function to toggle Wave Pay QR display
-    function toggleWavePayQR() {
-      const qrContainer = document.getElementById('wavePayQrDisplayContainer');
+    // Reusable function to toggle QR display for any given ID
+    function toggleQrDisplay(containerId) {
+      const qrContainer = document.getElementById(containerId);
       if (qrContainer.style.display === 'flex') {
         qrContainer.style.display = 'none'; // Hide if visible
       } else {
