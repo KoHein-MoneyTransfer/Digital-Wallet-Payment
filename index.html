@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -18,11 +19,32 @@
       margin-bottom: 10px;
     }
 
+    #datetime-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px; /* Space between the link and the datetime */
+      margin-bottom: 20px;
+    }
+
     #datetime {
-      text-align: center;
       font-size: 16px;
       color: #ccc;
-      margin-bottom: 20px;
+    }
+
+    .online-shop-link {
+      background-color: #007bff;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+
+    .online-shop-link:hover {
+      background-color: #0056b3;
     }
 
     h2 {
@@ -146,7 +168,10 @@
 
   <marquee direction="left"> Open Now စာ seenမဖစ်ရင် ဖုန်းခေါ်ပေးပါ ခင်ဗျာ... ☎ 09777725086</marquee>
 
-  <div id="datetime"></div>
+  <div id="datetime-container">
+    <a href="https://kohein-moneytransfer.github.io/Online-Shop/" class="online-shop-link" target="_blank">🛒 Online Shop</a>
+    <div id="datetime"></div>
+  </div>
 
   <h2>Digital Mobile Payment Account</h2>
 
