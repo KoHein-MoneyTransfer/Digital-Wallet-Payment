@@ -1,344 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="my">
 <head>
-  <meta charset="UTF-8">
-  <title>Ko Hein-Money Transfer & TopUp</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #0c1533;
-      color: white;
-      margin: 0;
-      padding: 15px;
-    }
-
-    marquee {
-      color: #00ff00;
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-
-    #datetime-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px; /* Space between the link and the datetime */
-      margin-bottom: 20px;
-    }
-
-    #datetime {
-      font-size: 16px;
-      color: #ccc;
-    }
-
-    .online-shop-link {
-      background-color: #007bff;
-      color: white;
-      padding: 5px 10px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 14px;
-      transition: background-color 0.3s ease;
-    }
-
-    .online-shop-link:hover {
-      background-color: #0056b3;
-    }
-
-    h2 {
-      text-align: center;
-      font-size: 22px;
-      margin-bottom: 20px;
-    }
-
-    .account-card {
-      background-color: #1a1a2e;
-      border: 1px solid #444;
-      border-radius: 10px;
-      padding: 15px;
-      margin-bottom: 20px;
-    }
-
-    .account-content {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .account-logo {
-      width: 50px;
-      height: 50px;
-      object-fit: contain;
-    }
-
-    .account-details {
-      flex-grow: 1;
-    }
-
-    .account-details strong {
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    .copy-button {
-      width: 100%;
-      margin-top: 10px;
-      padding: 10px;
-      background-color: #28a745;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    .contact-button {
-      display: block;
-      width: 100%;
-      padding: 14px;
-      background: linear-gradient(135deg, #007bff, #00bfff);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      text-align: center;
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: bold;
-      margin-bottom: 12px;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-
-    .contact-button:hover {
-      background: linear-gradient(135deg, #0056b3, #009acd);
-      transform: translateY(-2px);
-    }
-
-    /* Styles for the new QR section buttons */
-    .qr-button {
-      width: 100%;
-      margin-top: 10px;
-      padding: 10px;
-      background-color: #007bff; /* Blue color for QR button */
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 14px;
-      transition: background-color 0.3s ease;
-    }
-
-    .qr-button:hover {
-      background-color: #0056b3;
-    }
-
-    /* Styles for the QR display containers */
-    .qr-display-container { /* Unified style for both QR containers */
-      background-color: #1a1a2e;
-      border: 1px solid #444;
-      border-radius: 10px;
-      padding: 20px;
-      text-align: center;
-      max-width: 300px; /* Adjust as needed */
-      margin: 15px auto 0 auto; /* Center it below the card */
-      display: none; /* Initially hidden */
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .qr-display-container img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 5px;
-      margin-bottom: 15px;
-    }
-
-    .qr-display-container p {
-      font-size: 14px;
-      line-height: 1.5;
-      color: #ccc;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ငွေပေးချေမှုရွေးချယ်ရန်</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div style="text-align:center; margin-bottom: 10px;">
-    <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/signboard.png" alt="Signboard" style="max-width:100%; height:auto; border-radius:10px;">
-  </div>
+    <div class="container">
+        <div class="header-image">
+            <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/signboard.png" alt="Ko Hein Signboard" style="max-width:100%; height:auto; border-radius:10px;">
+        </div>
+        
+        <marquee class="status-marquee" direction="left">
+            Open Now စာ seenမဖစ်ရင် ဖုန်းခေါ်ပေးပါ ခင်ဗျာ... ☎ 09777725086
+        </marquee>
 
-  <marquee direction="left"> Open Now စာ seenမဖစ်ရင် ဖုန်းခေါ်ပေးပါ ခင်ဗျာ... ☎ 09777725086</marquee>
+        <div id="datetime" class="datetime"></div>
 
-  <div id="datetime-container">
-    <a href="https://kohein-moneytransfer.github.io/Online-Shop/" class="online-shop-link" target="_blank">🛒Online Shop🛒 </a>
-    <div id="datetime"></div>
-  </div>
+        <h2>ငွေပေးချေမှုနည်းလမ်းများ</h2>
+        <div class="payment-grid">
+            <a href="payment-details.html?method=wavepay" class="payment-item">
+                <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/Wave%20Pay%20Logo.jpg" alt="Wave Pay">
+                <span>Wave Pay</span>
+            </a>
+            <a href="payment-details.html?method=kbzpay" class="payment-item">
+                <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/KBZ%20Pay.jpg" alt="KBZ Pay">
+                <span>KBZ Pay</span>
+            </a>
+            <a href="payment-details.html?method=ayapay" class="payment-item">
+                <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/AYA%20Pay.jpeg" alt="AYA Pay">
+                <span>AYA Pay</span>
+            </a>
+            <a href="payment-details.html?method=kbzbank" class="payment-item">
+                <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/KBZ%20Bank.jpg" alt="KBZ Bank">
+                <span>KBZ Bank</span>
+            </a>
+            <a href="payment-details.html?method=ayabank" class="payment-item">
+                <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/AYA%20Bank.png" alt="AYA Bank">
+                <span>AYA Bank</span>
+            </a>
+            <a href="payment-details.html?method=yomabank" class="payment-item">
+                <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/Yoma%20Flexi.png" alt="Yoma Bank">
+                <span>Yoma Bank</span>
+            </a>
+            <a href="payment-details.html?method=cbpay" class="payment-item">
+                <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/CB%20Pay.jpg" alt="CB Pay">
+                <span>CB Pay</span>
+            </a>
+        </div>
 
-  <h2>Digital Mobile Payment Account</h2>
-
-  <div class="account-card">
-    <div class="account-content">
-      <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/Wave%20Pay%20Logo.jpg" class="account-logo">
-      <div class="account-details">
-        <strong>Wave Pay (Hein Hsan)<br></strong> 09966674258
-      </div>
+        <a href="https://connect.viber.com/business/ab5d1740-afae-11ef-bc91-5e63d64eabf6?utm_source=manage&utm_medium=copy_link" class="contact-btn" target="_blank">Viber သို့ စာပို့ရန်</a>
+        <a href="https://m.me/heinhsan341998" class="contact-btn" target="_blank">Messenger သို့ စာပို့ရန်</a>
     </div>
-    <button class="copy-button" onclick="copyToClipboard('09966674258')">📋Copy</button>
-    <button class="qr-button" onclick="toggleQrDisplay('wavePayQrDisplayContainer')">Wave Pay Merchant QR Code ပြရန်</button>
-  </div>
 
-  <div id="wavePayQrDisplayContainer" class="qr-display-container">
-    <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/Wave%20Pay%20QR.jpg" alt="Wave Pay QR Code">
-    <p>
-      Wave Pay Userအကောင့်များငွေလွှဲ50Lအထက်Limitကျော်လွှဲလိုပါက <br>
-      ဤ QR Code ကို Scan ဖတ်၍ လွှဲပြောင်းနိုင်ပါသည်။ <br>
-      Note:တွင်(Buy Phone)ဟုရေးပေးပါခင်ဗျာ။
-    </p>
-  </div>
-
-  <div class="account-card">
-    <div class="account-content">
-      <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/KBZ%20Pay.jpg" class="account-logo">
-      <div class="account-details">
-        <strong>KBZ Pay(Hein Hsan)<br>
-        </strong> 09777725086
-      </div>
-    </div>
-    <button class="copy-button" onclick="copyToClipboard('09777725086')">📋Copy</button>
-    <button class="qr-button" onclick="toggleQrDisplay('kbzPayQrDisplayContainer')">KBZ Pay Merchant QR Code ပြရန်</button>
-  </div>
-
-  <div id="kbzPayQrDisplayContainer" class="qr-display-container">
-    <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/KBZ%20Pay%20MMQR.jpg" alt="KBZ Pay Merchant QR Code">
-    <p>
-      KBZ Pay Userအကောင့်များငွေလွှဲ50Lအထက်Limitကျော်လွှဲလိုပါက <br>
-      ဤ QR Code ကို Scan ဖတ်၍ လွှဲပြောင်းနိုင်ပါသည်။ <br>
-      Note:တွင်(Buy Shop)ဟုရေးပေးပါခင်ဗျာ။
-    </p>
-  </div>
-
-  <div class="account-card">
-    <div class="account-content">
-      <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/AYA%20Pay.jpeg" class="account-logo">
-      <div class="account-details">
-        <strong>AYA Pay(Hein Hsan)<br>
-        </strong> 09777725086
-      </div>
-    </div>
-    <button class="copy-button" onclick="copyToClipboard('09777725086')">📋Copy</button>
-    <button class="qr-button" onclick="toggleQrDisplay('ayaPayMerchantQrDisplayContainer')">AYA Pay Merchant QR Code ပြရန်</button>
-  </div>
-
-  <div id="ayaPayMerchantQrDisplayContainer" class="qr-display-container">
-    <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/AYA%20Pay%20Merchant%20QR.jpg" alt="AYA Pay Merchant QR Code">
-    <p>
-      AYA Payမှငွေလွှဲ50Lအထက် Limitကျော်လွှဲလိုပါက <br>
-      ဤ Merchant QR Code ကို Scan ဖတ်၍ လွှဲပြောင်းနိုင်ပါသည်။ <br>
-      Note:တွင်(Buy Phone)ဟုရေးပေးပါခင်ဗျာ။
-    </p>
-  </div>
-
-  <div class="account-card">
-    <div class="account-content">
-      <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/KBZ%20Bank.jpg" class="account-logo">
-      <div class="account-details">
-        <strong>KBZ Bank Special(Hein Hsan)<br>
-        </strong> 24313724300197901
-      </div>
-    </div>
-    <button class="copy-button" onclick="copyToClipboard('24313724300197901')">📋Copy</button>
-  </div>
-
-  <div class="account-card">
-    <div class="account-content">
-      <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/AYA%20Bank.png" class="account-logo">
-      <div class="account-details">
-        <strong>AYA Bank Special(Hein Hsan)<br>
-        </strong> 40035991319
-      </div>
-    </div>
-    <button class="copy-button" onclick="copyToClipboard('40035991319')">📋Copy</button>
-  </div>
-
-  <div class="account-card">
-    <div class="account-content">
-      <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/AYA%20Bank.png" class="account-logo">
-      <div class="account-details">
-        <strong>AYA Bank ရိုးရိုး(Hein Hsan)<br>
-        </strong> 20024086745
-      </div>
-    </div>
-    <button class="copy-button" onclick="copyToClipboard('20024086745')">📋Copy</button>
-  </div>
-
-  <div class="account-card">
-    <div class="account-content">
-      <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/Yoma%20Flexi.png" class="account-logo">
-      <div class="account-details">
-        <strong>Yoma Bank Flexi(Hein Hsan)<br>
-        </strong> 005511108021168
-      </div>
-    </div>
-    <button class="copy-button" onclick="copyToClipboard('005511108021168')">📋Copy</button>
-  </div>
-
-  <div class="account-card">
-    <div class="account-content">
-      <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/CB%20Pay.jpg" class="account-logo">
-      <div class="account-details">
-        <strong>CB Bank Special(Hein Hsan)<br>
-        </strong> 0092100900000841
-      </div>
-    </div>
-    <button class="copy-button" onclick="copyToClipboard('0092100900000841')">📋Copy</button>
-  </div>
-
-  <div class="account-card">
-    <div class="account-content">
-      <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/CB%20Pay.jpg" class="account-logo">
-      <div class="account-details">
-        <strong>CB Bank ရိုးရိုး(Hein Hsan)<br>
-        </strong> 0092600500007757
-      </div>
-    </div>
-    <button class="copy-button" onclick="copyToClipboard('0092600500007757')">📋Copy</button>
-  </div>
-
-  <a href="https://connect.viber.com/business/ab5d1740-afae-11ef-bc91-5e63d64eabf6?utm_source=manage&utm_medium=copy_link" class="contact-button" target="_blank">Viber သို့ စာပို့ရန်</a>
-  <a href="https://m.me/heinhsan341998" class="contact-button" target="_blank">Messenger သို့ စာပို့ရန်</a>
-
-  <script>
-    // Copy function
-    function copyToClipboard(text) {
-      const tempInput = document.createElement('textarea');
-      tempInput.value = text;
-      document.body.appendChild(tempInput);
-      tempInput.select();
-      document.execCommand('copy');
-      document.body.removeChild(tempInput);
-      alert('နံပါတ်ကို Copy လုပ်ပြီးပါပြီ။');
-    }
-
-    // Date and Time
-    function updateDateTime() {
-      const now = new Date();
-      const dateStr = now.toLocaleDateString('en-GB');
-      const timeStr = now.toLocaleTimeString('en-GB');
-      document.getElementById('datetime').textContent = `${dateStr} | ${timeStr}`;
-    }
-
-    setInterval(updateDateTime, 1000);
-    updateDateTime();
-
-    // Reusable function to toggle QR display for any given ID
-    function toggleQrDisplay(containerId) {
-      const qrContainer = document.getElementById(containerId);
-      if (qrContainer.style.display === 'flex') {
-        qrContainer.style.display = 'none'; // Hide if visible
-      } else {
-        qrContainer.style.display = 'flex'; // Show if hidden
-      }
-    }
-  </script>
-
+    <script src="scripts.js"></script>
 </body>
 </html>
