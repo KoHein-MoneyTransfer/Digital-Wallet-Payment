@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ငွေပေးချေမှုရွေးချယ်ရန်</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> 
 </head>
 <body>
     <div class="container">
@@ -17,43 +18,96 @@
         </marquee>
 
         <div id="datetime" class="datetime"></div>
-
-        <h2>ငွေပေးချေမှုနည်းလမ်းများ</h2>
-        <div class="payment-grid">
-            <a href="payment-details.html?method=wavepay" class="payment-item">
-                <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/Wave%20Pay%20Logo.jpg" alt="Wave Pay">
-                <span>Wave Pay</span>
-            </a>
-            <a href="payment-details.html?method=kbzpay" class="payment-item">
-                <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/KBZ%20Pay.jpg" alt="KBZ Pay">
-                <span>KBZ Pay</span>
-            </a>
-            <a href="payment-details.html?method=ayapay" class="payment-item">
-                <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/AYA%20Pay.jpeg" alt="AYA Pay">
-                <span>AYA Pay</span>
-            </a>
-            <a href="payment-details.html?method=kbzbank" class="payment-item">
-                <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/KBZ%20Bank.jpg" alt="KBZ Bank">
-                <span>KBZ Bank</span>
-            </a>
-            <a href="payment-details.html?method=ayabank" class="payment-item">
-                <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/AYA%20Bank.png" alt="AYA Bank">
-                <span>AYA Bank</span>
-            </a>
-            <a href="payment-details.html?method=yomabank" class="payment-item">
-                <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/Yoma%20Flexi.png" alt="Yoma Bank">
-                <span>Yoma Bank</span>
-            </a>
-            <a href="payment-details.html?method=cbpay" class="payment-item">
-                <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/CB%20Pay.jpg" alt="CB Pay">
-                <span>CB Pay</span>
-            </a>
+        
+        <div id="home-content" class="page-content active-content">
+            <h2>ငွေပေးချေမှုနည်းလမ်းများ</h2>
+            <div class="payment-grid">
+                <a href="payment-details.html?method=wavepay" class="payment-item">
+                    <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/Wave%20Pay%20Logo.jpg" alt="Wave Pay">
+                    <span>Wave Pay</span>
+                </a>
+                <a href="payment-details.html?method=kbzpay" class="payment-item">
+                    <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/KBZ%20Pay.jpg" alt="KBZ Pay">
+                    <span>KBZ Pay</span>
+                </a>
+                <a href="payment-details.html?method=ayapay" class="payment-item">
+                    <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/AYA%20Pay.jpeg" alt="AYA Pay">
+                    <span>AYA Pay</span>
+                </a>
+                <a href="payment-details.html?method=kbzbank" class="payment-item">
+                    <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/KBZ%20Bank.jpg" alt="KBZ Bank">
+                    <span>KBZ Bank</span>
+                </a>
+                <a href="payment-details.html?method=ayabank" class="payment-item">
+                    <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/AYA%20Bank.png" alt="AYA Bank">
+                    <span>AYA Bank</span>
+                </a>
+                <a href="payment-details.html?method=yomabank" class="payment-item">
+                    <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/Yoma%20Flexi.png" alt="Yoma Bank">
+                    <span>Yoma Bank</span>
+                </a>
+                <a href="payment-details.html?method=cbpay" class="payment-item">
+                    <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/CB%20Pay.jpg" alt="CB Pay">
+                    <span>CB Pay</span>
+                </a>
+                <a href="payment-details.html?method=usdt" class="payment-item">
+                    <img src="https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/USDT_Logo.png" alt="USDT">
+                    <span>Tether (USDT)</span>
+                </a>
+            </div>
+        </div>
+        <div id="chat-content" class="page-content" style="display:none;">
+            <div class="live-chat-menu">
+                <h3>Live Chat Agent</h3>
+                <p>ဆက်သွယ်လိုသော နည်းလမ်းကို ရွေးချယ်ပါ:</p>
+                <a href="https://connect.viber.com/business/ab5d1740-afae-11ef-bc91-5e63d64eabf6?utm_source=manage&utm_medium=copy_link" class="contact-btn viber-btn" target="_blank">Viber သို့ စာပို့ရန်</a>
+                <a href="https://m.me/heinhsan341998" class="contact-btn messenger-btn" target="_blank">Messenger သို့ စာပို့ရန်</a>
+            </div>
+        </div>
+        <div id="notification-content" class="page-content" style="display:none;">
+            <h2>အသိပေးချက်များ (Notification)</h2>
+            <div class="notification-list">
+                <div class="notification-item">
+                    <strong>အရေးကြီးသော အသိပေးချက်။</strong>
+                    <p>ငွေလဲနှုန်းများကို နေ့စဥ် နံနက်ပိုင်းတွင် ပြောင်းလဲနိုင်ပါသည်။ လွှဲပြောင်းမှုမပြုမီ စျေးနှုန်းအား ပြန်လည်စစ်ဆေးပါ။</p>
+                    <span class="timestamp">လွန်ခဲ့သော ၁ နာရီ</span>
+                </div>
+                <div class="notification-item">
+                    <strong>စနစ်ထိန်းသိမ်းမှု။</strong>
+                    <p>KBZ Pay စနစ်ကို ပြုပြင်ထိန်းသိမ်းမှု ပြုလုပ်နေပါသည်။ ယင်းအချိန်အတွင်း KBZ Pay ဖြင့် ငွေလွှဲခြင်းကို ခေတ္တရပ်နားထားပါသည်။</p>
+                    <span class="timestamp">ဒီနေ့ နေ့လည် ၁၂:၀၀ နာရီ</span>
+                </div>
+            </div>
+        </div>
+        <div id="shop-content" class="page-content" style="display:none;">
+            <h2>Online Shop (ခေတ္တပိတ်ထားသည်)</h2>
+            <p style="text-align: center; color: #ffb86c; padding: 20px; background-color: #282a36; border-radius: 8px;">
+                ကျွန်ုပ်တို့၏ Online Shop စနစ်ကို မကြာမီ အချိန်အတွင်း ဖွင့်လှစ်ပေးပါမည်။
+            </p>
+            <div class="shop-placeholder-image" style="text-align: center; margin-top: 20px;">
+                <i class="fas fa-store" style="font-size: 80px; color: #768390;"></i>
+            </div>
+        </div>
         </div>
 
-        <a href="https://connect.viber.com/business/ab5d1740-afae-11ef-bc91-5e63d64eabf6?utm_source=manage&utm_medium=copy_link" class="contact-btn" target="_blank">Viber သို့ စာပို့ရန်</a>
-        <a href="https://m.me/heinhsan341998" class="contact-btn" target="_blank">Messenger သို့ စာပို့ရန်</a>
-    </div>
-
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item active" onclick="showContent('home')">
+            <i class="fas fa-house-chimney-user"></i> 
+            <span>Home</span>
+        </a>
+        <a href="#" class="nav-item" onclick="showContent('chat')">
+            <i class="fas fa-headset"></i> 
+            <span>Live Chat Agent</span>
+        </a>
+        <a href="#" class="nav-item" onclick="showContent('notification')">
+            <i class="fas fa-bell"></i> 
+            <span>Notification</span>
+        </a>
+        <a href="#" class="nav-item" onclick="showContent('shop')">
+            <i class="fas fa-cart-shopping"></i> 
+            <span>Online Shop</span>
+        </a>
+    </nav>
     <script src="scripts.js"></script>
 </body>
 </html>
