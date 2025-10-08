@@ -43,6 +43,19 @@ const paymentData = {
             { mainName: 'CB Bank Special', accountName: 'Hein Hsan', number: '0092100900000841', logo: 'https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/CB%20Pay.jpg' },
             { mainName: 'CB Bank ရိုးရိုး', accountName: 'Hein Hsan', number: '0092600500007757', logo: 'https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/CB%20Pay.jpg' }
         ]
+    },
+    usdt: {
+        title: 'Tether (USDT) အကောင့်', // Changed from USDT (Tether) to Tether (USDT)
+        accounts: [
+            { 
+                mainName: 'Tether (USDT)', // Changed from USDT to Tether (USDT)
+                accountName: 'Tron (TRC20)', 
+                number: 'TMf4dEDvUGywitvakvDGcR1PbLQYZmpxPu', 
+                logo: 'https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/USDT_Logo.png',
+                qr: 'https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/USDT%20(Trc20)QR.jpg',
+                qrNote: 'ငွေလွှဲပြောင်းရန်အတွက် Tron (TRC20) Network ကိုသာ အသုံးပြုပေးပါရန်။ Network မှားယွင်းပါက ငွေဆုံးရှုံးနိုင်ပါသည်။'
+            }
+        ]
     }
 };
 
@@ -71,6 +84,44 @@ function toggleQrDisplay(elementId) {
     const qrContainer = document.getElementById(elementId);
     qrContainer.style.display = qrContainer.style.display === 'flex' ? 'none' : 'flex';
 }
+
+/**
+ * Shows the selected content section and hides all others.
+ * @param {string} contentId The base ID of the content to show (e.g., 'home', 'chat', 'notification', 'shop').
+ */
+function showContent(contentId) {
+    // Hide all content sections on the index page
+    const allContent = document.querySelectorAll('.page-content');
+    allContent.forEach(content => {
+        content.style.display = 'none';
+    });
+
+    // Remove active class from all nav items
+    const allNavItems = document.querySelectorAll('.bottom-nav .nav-item');
+    allNavItems.forEach(item => {
+        item.classList.remove('active');
+    });
+
+    // Show the selected content
+    const selectedContent = document.getElementById(contentId + '-content');
+    if (selectedContent) {
+        selectedContent.style.display = 'block';
+        
+        // Set the active class on the corresponding nav item (based on onclick context)
+        // Find the nav item that triggered this function and set it as active
+        const clickedNavItem = event.currentTarget;
+        if (clickedNavItem) {
+             clickedNavItem.classList.add('active');
+        }
+        
+        // Scroll to the top of the container after changing content
+        const container = document.querySelector('.container');
+        if (container) {
+            container.scrollTop = 0;
+        }
+    }
+}
+
 
 // Function to handle the second page (payment-details.html)
 function loadPaymentDetails() {
@@ -104,14 +155,18 @@ function loadPaymentDetails() {
             </div>
         ` : '';
 
+        // Conditional labels for USDT
+        const accountDetailLabel = method === 'usdt' ? 'Network:' : 'Account Name:';
+        const accountNumberLabel = method === 'usdt' ? 'Deposit Address:' : 'Account Number:';
+
         htmlContent += `
             <div class="account-card">
                 <div class="account-content">
                     <img src="${account.logo}" class="account-logo" alt="${account.mainName} Logo">
                     <div class="account-details">
                         <strong>${account.mainName}</strong>
-                        <span>Account Name: <b>${account.accountName}</b></span><br>
-                        <span>Account Number: <b>${account.number}</b></span>
+                        <span>${accountDetailLabel} <b>${account.accountName}</b></span><br>
+                        <span>${accountNumberLabel} <b class="copy-target-${method}-${index}">${account.number}</b></span>
                     </div>
                 </div>
                 <div class="btn-group">
@@ -131,8 +186,19 @@ function loadPaymentDetails() {
 // Check which page is loaded and run the appropriate function
 document.addEventListener('DOMContentLoaded', () => {
     updateDateTime();
+    
+    // Set initial content view on index page
+    if (document.title.includes('ငွေပေးချေမှုရွေးချယ်ရန်')) {
+        // Find the currently active nav item or default to 'home'
+        const activeNav = document.querySelector('.bottom-nav .nav-item.active');
+        const initialContentId = activeNav ? activeNav.getAttribute('onclick').match(/'(.*?)'/)[1] : 'home';
+        showContent(initialContentId); 
+    }
+
     if (document.title.includes('အကောင့်အချက်အလက်များ')) {
         loadPaymentDetails();
+        
+        // This is a details page, so no page switching logic is needed here.
     }
 });
 
