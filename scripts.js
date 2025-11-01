@@ -22,7 +22,7 @@ const paymentData = {
         title: 'KBZ Bank အကောင့်များ',
         accounts: [
             { mainName: 'KBZ Bank Special', accountName: 'Hein Hsan', number: '24313724300197901', logo: 'https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/KBZ%20Bank.jpg' },
-              { name: 'KBZ Bank ရိုးရိုး(Hein Hsan)', number: '24330124300197901', logo: 'https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/KBZ%20Bank.jpg' }
+              { mainName: 'KBZ Bank ရိုးရိုး', accountName: 'Hein Hsan', number: '24330124300197901', logo: 'https://raw.githubusercontent.com/KoHein-MoneyTransfer/images/refs/heads/main/KBZ%20Bank.jpg' }
         ]
     },
     ayabank: {
